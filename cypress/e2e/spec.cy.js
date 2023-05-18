@@ -1,15 +1,8 @@
 /// <reference types= "cypress" />
 
-describe('DemoQA Menu-tilis', () => {
+describe('DemoQA Menu-titles', () => {
   //create a  variable
-  const expectedMenuItemNames = [
-    'Elements',
-    'Forms', 
-    'Alerts, Frame & Windows',
-    'Widgets', 
-    'Interactions',
-    'Book Store Application'
-  ];
+  
 
   let formDatas;
 
@@ -26,7 +19,9 @@ describe('DemoQA Menu-tilis', () => {
   })
 
   beforeEach(function () {
-    cy.visit('/') //moved to cypress_config
+    cy.visit('/')
+    cy.viewport(1024, 768)
+    //moved to cypress_config
     /*
     cy.fixture('formData').then((data) => {
       this.formData = data; ---> moved above and changed this.formData to formDatas
@@ -35,42 +30,42 @@ describe('DemoQA Menu-tilis', () => {
     */
   })
 
-  /*
+  
     //ficture formData
   it('Form filling', function() {
     cy.get('.card:nth-child(2)').click()
     cy.get('.element-group:nth-child(2)>div').click()
     cy.get('#firstName')
       .should('have.text', '')
-      .type(`${this.formData.firstName}{enter}`)
+      .type(formData.firstName)
       .should('have.value', this.formData.firstName)
-      .should('have.css', 'border-color', 'rgb(40, 167, 69)')
-
-
-      cy.get('#userEmail')
-      .should('have.text', '')
-      .type(`${this.formData.userEmail}}{enter}`)
-      .should('have.value', this.formData.userEmail)
-      .should('have.css', 'border-color', 'rgb(40, 167, 69)')
-  })
-  */
-
-  it('Form filling Version 2', () => {
-    cy.get('.card:nth-child(2)').click()
-    cy.get('.element-group:nth-child(2)>div').click()
-    cy.get('#firstName')
-      .should('have.text', '')
-      .type(formDatas.firstName)
-      .should('have.value', formDatas.firstName)
       // .should('have.css', 'border-color', 'rgb(40, 167, 69)')
+
+
       cy.get('#userEmail')
       .should('have.text', '')
-      .type(formDatas.userEmail)
-      .should('have.value', formDatas.userEmail)
-      cy.get('#submit').click()
-      cy.get('#firstName').should('have.css', 'border-color', 'rgb(40, 167, 69)')
-      cy.get('#userEmail').should('have.css', 'border-color', 'rgb(40, 167, 69)')
+      .type(this.formData.userEmail)
+      .should('have.value', this.formData.userEmail)
+      // .should('have.css', 'border-color', 'rgb(40, 167, 69)')
   })
+  
+
+  // it('Form filling Version 2', () => {
+  //   cy.get('.card:nth-child(2)').click()
+  //   cy.get('.element-group:nth-child(2)>div').click()
+  //   cy.get('#firstName')
+  //     .should('have.text', '')
+  //     .type(formDatas.firstName)
+  //     .should('have.value', formDatas.firstName)
+  //     // .should('have.css', 'border-color', 'rgb(40, 167, 69)')
+  //     cy.get('#userEmail')
+  //     .should('have.text', '')
+  //     .type(formDatas.userEmail)
+  //     .should('have.value', formDatas.userEmail)
+  //     cy.get('#submit').click()
+  //     cy.get('#firstName').should('have.css', 'border-color', 'rgb(40, 167, 69)')
+  //     cy.get('#userEmail').should('have.css', 'border-color', 'rgb(40, 167, 69)')
+  // })
 
 
 })

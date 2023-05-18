@@ -1,0 +1,12 @@
+{
+    "set": [
+        {
+        "firstName": "Alina",
+        "userEmail": "test@gmail.com"
+        },
+        {
+            "firstName": "Benas",
+            "userEmail": "benas@gmail.com"
+        }
+    ]
+}
